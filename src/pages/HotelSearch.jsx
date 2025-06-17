@@ -1,0 +1,1 @@
+import React from 'react'; const HotelSearch = () => <div>Hotel Search</div>; export default HotelSearch;

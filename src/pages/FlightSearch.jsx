@@ -1,0 +1,1 @@
+import React from 'react'; const FlightSearch = () => <div>Flight Search</div>; export default FlightSearch;
