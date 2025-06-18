@@ -1,50 +1,71 @@
 import React, { useState } from 'react';
 
 const ConsultationPage = () => {
-  const [fullName, setFullName] = useState('');
-  const [email, setEmail] = useState('');
-  const [phone, setPhone] = useState('');
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    passportNumber: '',
+    travelDate: ''
+  });
+
+  const handleChange = (e) => {
+    setFormData(prev => ({
+      ...prev,
+      [e.target.name]: e.target.value
+    }));
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Simulate payment and redirect to success
+    // Simulate payment + redirect
     window.location.href = '/consultation-success';
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-blue-50 py-10 px-4">
-      <div className="w-full max-w-md bg-white rounded-xl shadow p-6">
-        <h2 className="text-2xl font-bold mb-4 text-center text-blue-700">Visa Consultation Booking</h2>
+    <div className="min-h-screen bg-blue-50 text-gray-800 px-4 py-10">
+      <div className="max-w-xl mx-auto bg-white p-8 rounded shadow-md">
+        <h2 className="text-2xl font-bold text-blue-700 mb-6">Visa Consultation Form</h2>
         <form onSubmit={handleSubmit} className="space-y-4">
           <input
             type="text"
+            name="name"
+            value={formData.name}
+            onChange={handleChange}
             placeholder="Full Name"
-            value={fullName}
-            onChange={(e) => setFullName(e.target.value)}
             required
-            className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full px-4 py-2 border rounded"
           />
           <input
             type="email"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
             placeholder="Email Address"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
             required
-            className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full px-4 py-2 border rounded"
           />
           <input
-            type="tel"
-            placeholder="Phone Number"
-            value={phone}
-            onChange={(e) => setPhone(e.target.value)}
+            type="text"
+            name="passportNumber"
+            value={formData.passportNumber}
+            onChange={handleChange}
+            placeholder="Passport Number"
             required
-            className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full px-4 py-2 border rounded"
+          />
+          <input
+            type="date"
+            name="travelDate"
+            value={formData.travelDate}
+            onChange={handleChange}
+            required
+            className="w-full px-4 py-2 border rounded"
           />
           <button
             type="submit"
-            className="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition"
+            className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition"
           >
-            Pay ₦50,000 & Book
+            Pay ₦50,000 and Book Consultation
           </button>
         </form>
       </div>
