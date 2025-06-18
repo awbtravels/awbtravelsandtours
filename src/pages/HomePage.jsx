@@ -19,18 +19,8 @@ const HomePage = () => {
           >
             Book Visa Consultation
           </Link>
-          <Link
-            to="/bookings"
-            className="bg-white text-blue-600 border border-blue-600 hover:bg-blue-50 px-6 py-3 rounded-full font-medium shadow transition"
-          >
-            Book Travel Now
-          </Link>
         </div>
       </main>
-
-      <footer className="bg-white mt-auto py-4 text-center text-sm text-gray-600 border-t">
-        &copy; {new Date().getFullYear()} AWB Travels and Tours LTD. All rights reserved.
-      </footer>
     </div>
   );
 };
